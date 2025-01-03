@@ -123,10 +123,10 @@ export default function Home() {
         {currentDate && (
           <div className="flex flex-col md:flex-row md:items-center gap-y-2 gap-x-3">
             <div className="flex items-center gap-x-2">
-              <Calendar2 size={24} color={primaryColor} />
-              <label className="text-lg font-semibold">Booking date : </label>
+              <Calendar2 size={20} color={primaryColor} />
+              <label className="font-semibold">Booking date : </label>
             </div>
-            <p className="text-lg">{format(currentDate, 'dd LLLL yyyy')}</p>
+            <p>{format(currentDate, 'dd LLLL yyyy')}</p>
           </div>
         )}
 
@@ -135,20 +135,20 @@ export default function Home() {
 
         {/* Guest Details */}
         <div className="grid gap-y-3">
-          <div className="flex items-center gap-x-3">
-            <User size={24} color={primaryColor} />
-            <label className="text-lg font-semibold">Guest details</label>
+          <div className="flex items-center gap-x-2">
+            <User size={20} color={primaryColor} />
+            <label className="font-semibold">Guest details</label>
           </div>
           <div className="flex flex-col md:flex-row gap-y-4 gap-x-4 w-full">
             <input
               onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
-              className="h-[60px] px-5 w-full md:w-1/2 rounded-2xl border-[1.5px] outline-primary border-strokes"
+              className="h-[55px] text-sm px-5 w-full md:w-1/2 rounded-2xl border-[1.5px] outline-primary border-strokes"
               placeholder="First name"
               required
             />
             <input
               onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
-              className="h-[60px] px-5 w-full md:w-1/2 rounded-2xl border-[1.5px] outline-primary border-strokes"
+              className="h-[55px] text-sm px-5 w-full md:w-1/2 rounded-2xl border-[1.5px] outline-primary border-strokes"
               placeholder="Last name"
               required
             />
@@ -160,9 +160,9 @@ export default function Home() {
 
         {/* Time Slot */}
         <div className="grid gap-y-3">
-          <div className="flex items-center gap-x-3">
-            <Clock size={24} color={primaryColor} />
-            <label className="text-lg font-semibold">Select time slot</label>
+          <div className="flex items-center gap-x-2">
+            <Clock size={20} color={primaryColor} />
+            <label className="font-semibold">Select time slot</label>
           </div>
           <div className="flex gap-4 flex-wrap">
             {slots.map((slot, index) => (
@@ -171,7 +171,7 @@ export default function Home() {
                 key={index}
                 className={`cursor-pointer ${index === selectedSlot ? 'bg-primary text-white border-none lg:hover:bg-primary/90' : 'border-[1.5px] border-strokes lg:hover:bg-tile'} w-[125px] flex items-center justify-center px-6 py-3 rounded-xl`}
               >
-                <h1>{slot.label}</h1>
+                <h1 className="text-sm">{slot.label}</h1>
               </div>
             ))}
           </div>
@@ -182,7 +182,7 @@ export default function Home() {
 
         {/* Guest Counts */}
         <div className="flex items-center gap-x-6">
-          <label className="text-lg font-semibold">Guest count : </label>
+          <label className="font-semibold">Guest count : </label>
           <div className="flex items-center gap-x-6">
             <div onClick={reduceGuestCount} className="cursor-pointer h-fit w-fit flex items-center justify-center bg-tile p-1.5 rounded-full">
               <Minus size={16} color={primaryColor} />
