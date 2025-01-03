@@ -96,7 +96,7 @@ export default function Home() {
     };
 
     try {
-      const response = await axios.post(API_URL + '/booking/add', bookingData);
+      const response = await axios.post(`${API_URL}/api/booking/add`, bookingData);
       const responseData = response.data;
       console.log(responseData);
     } catch (error) {
