@@ -15,6 +15,8 @@ import axios from "axios";
 
 const primaryColor = "#F92E43";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 // Time Slot Array
 const slots = [
   {
@@ -94,7 +96,7 @@ export default function Home() {
     };
 
     try {
-      const response = await axios.post('http://localhost:3001/api/booking/add', bookingData);
+      const response = await axios.post(API_URL + '/booking/add', bookingData);
       const responseData = response.data;
       console.log(responseData);
     } catch (error) {
